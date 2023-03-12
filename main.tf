@@ -9,9 +9,9 @@ provider "aws" {
   }
 }
 terraform {
-  backend "s3"{
+  backend "s3" {
     bucket = "yarden-s3"
-    key = "EKS-tf"
+    key    = "EKS-tf"
     region = "eu-west-1"
   }
 }

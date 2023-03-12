@@ -6,8 +6,7 @@ module "eks" {
   cluster_name    = var.cluster_name
   cluster_version = "1.25"
 
-  cluster_endpoint_private_access = true
-  cluster_endpoint_public_access  = true
+  cluster_endpoint_public_access = true
 
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.vpc.private_subnets
@@ -20,9 +19,9 @@ module "eks" {
 
   eks_managed_node_groups = {
     general = {
-      desired_size = 1
-      min_size     = 1
-      max_size     = 10
+      desired_size = 3
+      min_size     = 3
+      max_size     = 3
 
       labels = {
         role = "general"
@@ -32,24 +31,24 @@ module "eks" {
       capacity_type  = "ON_DEMAND"
     }
 
-    spot = {
-      desired_size = 1
-      min_size     = 1
-      max_size     = 10
+    # spot = {
+    #   desired_size = 1
+    #   min_size     = 1
+    #   max_size     = 10
 
-      labels = {
-        role = "spot"
-      }
+    #   labels = {
+    #     role = "spot"
+    #   }
 
-      taints = [{
-        key    = "market"
-        value  = "spot"
-        effect = "NO_SCHEDULE"
-      }]
+    #   taints = [{
+    #     key    = "market"
+    #     value  = "spot"
+    #     effect = "NO_SCHEDULE"
+    #   }]
 
-      instance_types = var.EKS_instance_types
-      capacity_type  = "SPOT"
-    }
+    #   instance_types = var.EKS_instance_types
+    #   capacity_type  = "SPOT"
+    # }
   }
 
 }
