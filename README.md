@@ -58,8 +58,8 @@ source code for a To-do list application will be supplied to you in the accompan
 
 
 ## Docker
-- Write a `Dockerfile` for building the application image.
-- Write a `docker-compose.yaml` file for running the application locally and for tests in CI (more below).
+- [X] Write a `Dockerfile` for building the application image.
+- [X] Write a `docker-compose.yaml` file for running the application locally and for tests in CI (more below).
 
 
 ## Documentation
@@ -68,10 +68,10 @@ You should add a `README.md` for each of your repos (and update it as you procee
 
 ## Cloud Infrastructure
 - Provision the following cloud infrastructure using offical AWS Terraform modules:
-  - Private ECR repository for your application's Docker images.
-  - VPC with high availability (at least 3 [public] subnets, each in their own AZ).
-  - Kubernetes (EKS) cluster, composed of 3 `t3a.large` nodes, spanning all subnets in the VPC.
-- Configure S3 as a remote backend for your Terraform `.tfstate`.
+  - [X] Private ECR repository for your application's Docker images.
+  - [X] VPC with high availability (at least 3 [public] subnets, each in their own AZ).
+  - [X] Kubernetes (EKS) cluster, composed of 3 `t3a.large` nodes, spanning all subnets in the VPC.
+- [X] Configure S3 as a remote backend for your Terraform `.tfstate`.
 - Use a Helm [Terraform] provider to create the initial Helm release of Argo CD via Terraform.
 - Use variables for _your_ Terraform code (pass them to modules' input).
 
