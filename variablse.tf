@@ -11,7 +11,19 @@ variable "vpc_name" {
   type = string
 }
 
+variable "cluster_name" {
+  type = string
+}
+
+variable "ECR_name" {
+  type = string
+}
+
 variable "azs" {
+  type = list(string)
+}
+
+variable "EKS_instance_types" {
   type = list(string)
 }
 

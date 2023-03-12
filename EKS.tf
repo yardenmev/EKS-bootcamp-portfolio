@@ -3,8 +3,8 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "18.29.0"
 
-  cluster_name    = "my-eks"
-  cluster_version = "1.23"
+  cluster_name    = var.cluster_name
+  cluster_version = "1.25"
 
   cluster_endpoint_private_access = true
   cluster_endpoint_public_access  = true
@@ -28,7 +28,7 @@ module "eks" {
         role = "general"
       }
 
-      instance_types = ["t3.small"]
+      instance_types = var.EKS_instance_types
       capacity_type  = "ON_DEMAND"
     }
 
@@ -47,12 +47,9 @@ module "eks" {
         effect = "NO_SCHEDULE"
       }]
 
-      instance_types = ["t3.micro"]
+      instance_types = var.EKS_instance_types
       capacity_type  = "SPOT"
     }
   }
 
-  tags = {
-    Environment = "staging"
-  }
 }
