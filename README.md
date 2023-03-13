@@ -80,13 +80,13 @@ You should add a `README.md` for each of your repos (and update it as you procee
 Implement CI for the application using a multibranch pipeline and publish to image registry (ECR).
 
 Stages:
-1. [for `main` branch] Calculate and increment [minor] version number for Docker image tag and git tag. Use a Groovy or Bash script that fetches/lists the existing git tags, find the most advanced one, and stores the incremented value for use in following stages. Initially (when setting up git repo) manually push the tag `v1.0`.
-2. [for any branch] Build Docker image - Docker tag should be version if on `main` branch and short Git commit hash if on other branches. Example image names: `todo:1.23`, `todo:b1e9a80`.
-3. [for any branch] Test (`docker-compose up`, `curl ...`, `docker-compose down`) - write one test for each of the `/api*` routes (total of 4 cases). Remember to cleanup (and careful not to kill Jenkins container or your colleagues' containers!).
-4. [for `main` branch] Git tag - Git tag with version (calculated in first stage), then push *tags* to the remote repository.
-5. [for any branch] Publish - Push the newly built image to your image registry (`docker login ...`, `docker push ...`).
-6. [for `main` branch] Deploy - Pull GitOps configuration repo, update image tag in `values.yaml`, then push for Argo CD to handle.
-7. _(bonus)_ [for any branch] Report - send a report via e-mail or slack about the pipeline's result.
+- [] 1. [for `main` branch] Calculate and increment [minor] version number for Docker image tag and git tag. Use a Groovy or Bash script that fetches/lists the existing git tags, find the most advanced one, and stores the incremented value for use in following stages. Initially (when setting up git repo) manually push the tag `v1.0`.
+- [] 2. [for any branch] Build Docker image - Docker tag should be version if on `main` branch and short Git commit hash if on other branches. Example image names: `todo:1.23`, `todo:b1e9a80`.
+- [X] 3. [for any branch] Test (`docker-compose up`, `curl ...`, `docker-compose down`) - write one test for each of the `/api*` routes (total of 4 cases). Remember to cleanup (and careful not to kill Jenkins container or your colleagues' containers!).
+- [] 4. [for `main` branch] Git tag - Git tag with version (calculated in first stage), then push *tags* to the remote repository.
+- [] 5. [for any branch] Publish - Push the newly built image to your image registry (`docker login ...`, `docker push ...`).
+- [] 6. [for `main` branch] Deploy - Pull GitOps configuration repo, update image tag in `values.yaml`, then      push   for Argo CD to handle.
+- [] 7. _(bonus)_ [for any branch] Report - send a report via e-mail or slack about the pipeline's result.
 
 
 ## Helm
