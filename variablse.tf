@@ -42,3 +42,25 @@ variable "public_subnet_tags" {
 variable "private_subnet_tags" {
   type = map(string)
 }
+
+
+variable "namespace" {
+  type    = string
+  default = "argocd"
+}
+
+
+variable "ingress_enabled" {
+  type    = bool
+  default = false
+}
+
+variable "ingress_host" {
+  type    = string
+  default = ""
+}
+
+variable "ingress_path" {
+  type    = string
+  default = "/"
+}
