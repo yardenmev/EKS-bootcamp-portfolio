@@ -72,8 +72,8 @@ You should add a `README.md` for each of your repos (and update it as you procee
   - [X] VPC with high availability (at least 3 [public] subnets, each in their own AZ).
   - [X] Kubernetes (EKS) cluster, composed of 3 `t3a.large` nodes, spanning all subnets in the VPC.
 - [X] Configure S3 as a remote backend for your Terraform `.tfstate`.
-- Use a Helm [Terraform] provider to create the initial Helm release of Argo CD via Terraform.
-- Use variables for _your_ Terraform code (pass them to modules' input).
+- [X] Use a Helm [Terraform] provider to create the initial Helm release of Argo CD via Terraform.
+- [X] Use variables for _your_ Terraform code (pass them to modules' input).
 
 
 ## CI/CD
