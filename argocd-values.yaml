@@ -1,20 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mongodb
+  name: 'todo'
 spec:
   project: default
   source:
     repoURL: 'https://github.com/yardenmev/GitOps-bootcamp-portfolio'
+    path: todo-chart
     targetRevision: HEAD
-    path: mongodb
-    helm:
-      valueFiles:
-        - values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+    automated: {}
