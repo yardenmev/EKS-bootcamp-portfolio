@@ -1,6 +1,7 @@
 
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
+  # version = "19.10.0"
   version = "18.29.0"
 
   cluster_name    = var.cluster_name
@@ -30,25 +31,6 @@ module "eks" {
       instance_types = var.EKS_instance_types
       capacity_type  = "ON_DEMAND"
     }
-
-    # spot = {
-    #   desired_size = 1
-    #   min_size     = 1
-    #   max_size     = 10
-
-    #   labels = {
-    #     role = "spot"
-    #   }
-
-    #   taints = [{
-    #     key    = "market"
-    #     value  = "spot"
-    #     effect = "NO_SCHEDULE"
-    #   }]
-
-    #   instance_types = var.EKS_instance_types
-    #   capacity_type  = "SPOT"
-    # }
   }
 
 }
