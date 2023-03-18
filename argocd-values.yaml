@@ -1,18 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 'todo'
+  name: 'prometheus'
 spec:
   project: default
   source:
     repoURL: 'https://github.com/yardenmev/GitOps-bootcamp-portfolio'
-    path: todo-chart
+    path: prometheus
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
   syncPolicy:
-  apiVersion: argoproj.io/v1alpha1
+    syncOptions:
+      - ServerSideApply=true
+
+apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: 'todo'
