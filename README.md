@@ -49,8 +49,8 @@ Implement all work in *private* git repositories. Use a separate git repository 
 - [x] GitOps manifests (YAML) and application Helm chart.
 
 Branching (in application repository):
-- `main` branch is for running releases.
-- `feature/*` branches are for development.
+- [x] `main` branch is for running releases.
+- [x] `feature/*` branches are for development.
 
 
 ## Development
@@ -77,11 +77,11 @@ You should add a `README.md` for each of your repos (and update it as you procee
 
 
 ## CI/CD
-Implement CI for the application using a multibranch pipeline and publish to image registry (ECR).
+- [x] Implement CI for the application using a multibranch pipeline and publish to image registry (ECR).
 
 Stages:
-- [] 1. [for `main` branch] Calculate and increment [minor] version number for Docker image tag and git tag. Use a Groovy or Bash script that fetches/lists the existing git tags, find the most advanced one, and stores the incremented value for use in following stages. Initially (when setting up git repo) manually push the tag `v1.0`.
-- [] 2. [for any branch] Build Docker image - Docker tag should be version if on `main` branch and short Git commit hash if on other branches. Example image names: `todo:1.23`, `todo:b1e9a80`.
+- [x] 1. [for `main` branch] Calculate and increment [minor] version number for Docker image tag and git tag. Use a Groovy or Bash script that fetches/lists the existing git tags, find the most advanced one, and stores the incremented value for use in following stages. Initially (when setting up git repo) manually push the tag `v1.0`.
+- [x] 2. [for any branch] Build Docker image - Docker tag should be version if on `main` branch and short Git commit hash if on other branches. Example image names: `todo:1.23`, `todo:b1e9a80`.
 - [X] 3. [for any branch] Test (`docker-compose up`, `curl ...`, `docker-compose down`) - write one test for each of the `/api*` routes (total of 4 cases). Remember to cleanup (and careful not to kill Jenkins container or your colleagues' containers!).
 - [] 4. [for `main` branch] Git tag - Git tag with version (calculated in first stage), then push *tags* to the remote repository.
 - [X] 5. [for any branch] Publish - Push the newly built image to your image registry (`docker login ...`, `docker push ...`).
@@ -90,25 +90,25 @@ Stages:
 
 
 ## Helm
-- Write a Helm chart for the application.
-- Allow all application configuration to be done via the chart's `values.yaml`.
-- Include toggles for Ingress and ServiceMonitor resources in the `values.yaml`.
-- Store it in the application repository, with "sane" default values (e.g. `service.type=ClusterIP`, `ingress.enabled=false`).
+- [x] Write a Helm chart for the application.
+- [x] Allow all application configuration to be done via the chart's `values.yaml`.
+- [x] Include toggles for Ingress and ServiceMonitor resources in the `values.yaml`.
+- [x] Store it in the application repository, with "sane" default values (e.g. `service.type=ClusterIP`, `ingress.enabled=false`).
 - _(bonus)_ Write an umbrella (parent) chart for both the application and database (dependencies).
 
 
 ## GitOps
-- Implement GitOps based CD to the Kubernetes cluster.
-- Provision/deploy all infrastructure cluster services using [Argo] Application resources:
-  - Ingress controller.
+- [x] Implement GitOps based CD to the Kubernetes cluster.
+- [x] Provision/deploy all infrastructure cluster services using [Argo] Application resources:
+  - [x] Ingress controller.
   - EFK stack (logging).
-  - Prometheus stack (monitoring).
+  - [x] Prometheus stack (monitoring).
   - _(bonus)_ Cert-manager (for TLS).
 
 
 ## Observability
 - Deploy an EFK (logging) stack using Argo CD.
-- Deploy a Prometheus stack (monitoring) stack using Argo CD.
+- [x] Deploy a Prometheus stack (monitoring) stack using Argo CD.
 - Create a Kibana dashboard displaying useful log insights from the application.
 - Create a Grafana dashboard displaying useful metric insights from the application, cluster nodes and Ingress.
 
