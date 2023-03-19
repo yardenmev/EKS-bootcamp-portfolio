@@ -85,7 +85,7 @@ Stages:
 - [X] 3. [for any branch] Test (`docker-compose up`, `curl ...`, `docker-compose down`) - write one test for each of the `/api*` routes (total of 4 cases). Remember to cleanup (and careful not to kill Jenkins container or your colleagues' containers!).
 - [] 4. [for `main` branch] Git tag - Git tag with version (calculated in first stage), then push *tags* to the remote repository.
 - [X] 5. [for any branch] Publish - Push the newly built image to your image registry (`docker login ...`, `docker push ...`).
-- [] 6. [for `main` branch] Deploy - Pull GitOps configuration repo, update image tag in `values.yaml`, then      push   for Argo CD to handle.
+- [X] 6. [for `main` branch] Deploy - Pull GitOps configuration repo, update image tag in `values.yaml`, then      push   for Argo CD to handle.
 - [] 7. _(bonus)_ [for any branch] Report - send a report via e-mail or slack about the pipeline's result.
 
 
@@ -107,7 +107,7 @@ Stages:
 
 
 ## Observability
-- Deploy an EFK (logging) stack using Argo CD.
+- [x] Deploy an EFK (logging) stack using Argo CD.
 - [x] Deploy a Prometheus stack (monitoring) stack using Argo CD.
 - Create a Kibana dashboard displaying useful log insights from the application.
 - Create a Grafana dashboard displaying useful metric insights from the application, cluster nodes and Ingress.
