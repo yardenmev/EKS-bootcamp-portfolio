@@ -18,15 +18,11 @@ resource "helm_release" "argocd" {
     name  = "server.ingress.ingressClassName"
     value = "nginx"
   }
-  #  set {
-  #   name  = "server.ingress.paths"
-  #   value = "/argocd"
-  # }
-  # set {
-  #   name  = "server.ingress.annotations"
-  #   value = "nginx.ingress.kubernetes.io/rewrite-target: /"
-  # }
- 
+  set {
+    name  = "server.ingress.hosts"
+    value = "yarden-argo.duckdns.org"
+  }
+  
 }
 
 resource "null_resource" "argo_password" {
