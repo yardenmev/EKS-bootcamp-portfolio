@@ -18,10 +18,10 @@ resource "helm_release" "argocd" {
     name  = "server.ingress.ingressClassName"
     value = "nginx"
   }
-  set {
-    name  = "server.ingress.hosts"
-    value = "yarden-argo.duckdns.org"
-  }
+  # set {
+  #   name  = "server.ingress.hosts"
+  #   value = "yarden-argo.duckdns.org"
+  # }
   
 }
 
